@@ -1,0 +1,35 @@
+name: Execução de teste de Cypress + Allure Framework
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Código
+        uses: actions/checkout@v4
+
+      - name: Instalar Dependências
+        run: npm ci
+
+      # Executar testes do Cypress
+      - name: Executar Testes do Cypress
+        run: npx cypress run
+
+      # Gerar o relatório do Allure
+      - name: Gerar Relatório HTML do Allure
+        run: |
+          npm install -g allure-commandline
+          allure generate resultadoteste/build-* --clean -o allure-report
+
+      # Publica o relatório final para você visualizar no navegador
+      - name: Publicar Relatório no GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
