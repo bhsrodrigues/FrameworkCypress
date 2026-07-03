@@ -1,22 +1,25 @@
 import '../../support/commands/commands-adopet';
 
 import {APETControleAcessoElements} from '../../support/pages/adopet/dados-acesso-elements.js';
+import LoginPage from '../../support/pages/adopet/LoginPage.js'
 
 const login = APETControleAcessoElements;
 
 describe('Página de Login', () => {
-    it('Login sem sucesso via Interface - Não preenchendo dados', () => {
+    beforeEach(() => {
         cy.acessarPaginaLogin();
-        cy.get(login.btnEntrar).click();
-
+    })
+    it('Login sem sucesso via Interface - Não preenchendo dados', () => {
+        
+        LoginPage.clicarLogin();
     })
 
     it('Login sem sucesso via Interface - Preenchendo dados inválidos', () =>{
-        cy.preencherDadosLogin('asdffdsa@asdf.fdsa', 'asdfadsf');
+        LoginPage.efetuarLogin('asdffdsa@asdf.fdsa', 'asdfadsf');
     })
 
     it('Login com sucesso via interface', () => {
-        cy.preencherDadosLogin('asdfadsf@adsf.asdf', 'ASDFasdf1234');
+        LoginPage.efetuarLogin('asdfadsf@adsf.asdf', 'ASDFasdf1234');
     })
 
 })
