@@ -1,3 +1,6 @@
+//import allure from "allure-cypress";
+import * as allure from "allure-cypress";
+
 class LoginPage{
 
     get txtEmail() { return cy.get('[data-test="input-loginEmail"]');}

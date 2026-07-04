@@ -6,9 +6,7 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // Configura o Allure no ciclo de vida do Cypress
-      allureCypress(on, config,{
-        resultsDir : 'resultados-testes-1234'
-      });
+      allureCypress(on, config);
       
       return config;
     }
