@@ -1,11 +1,14 @@
 const { defineConfig } = require("cypress");
+const { allureCypress } = require("allure-cypress/reporter");
 
 module.exports = defineConfig({
-  allowCypressEnv: false,
-
+  //allowCypressEnv: false,
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+      // Configura o Allure no ciclo de vida do Cypress
+      allureCypress(on, config);
+      
+      return config;
+    }
   },
 });
