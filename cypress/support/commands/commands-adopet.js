@@ -1,7 +1,6 @@
 //import {APETControleAcessoElements} from '../../support/pages/adopet/dados-acesso-elements.js';
 import HomePage from '../../support/pages/adopet/HomePage.js';
 
-
 //const login = APETControleAcessoElements;
 
 Cypress.Commands.add('acessarSite', () => {

@@ -12,6 +12,6 @@
   "type": "commonjs",
   "devDependencies": {
     "allure-cypress": "^3.10.2",
-    "cypress": "^15.17.0"
+    "cypress": "^15.18.1"
   }
 }
