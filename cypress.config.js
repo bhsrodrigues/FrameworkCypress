@@ -5,10 +5,9 @@ module.exports = defineConfig({
   //allowCypressEnv: false,
   e2e: {
     setupNodeEvents(on, config) {
-      // Configura o Allure no ciclo de vida do Cypress
       allureCypress(on, config);
-      
+
       return config;
-    }
-  },
+    },
+  }
 });

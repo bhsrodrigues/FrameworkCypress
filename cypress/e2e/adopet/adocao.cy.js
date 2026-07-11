@@ -3,11 +3,9 @@ import '../../support/commands/commands-adopet'
 import LoginPage from '../../support/pages/adopet/LoginPage'
 import HomePage from '../../support/pages/adopet/HomePage'
 import * as allure from "allure-cypress";
-import {adocao} from '../fixtures/adopet-adocao.json'
+import adocao from '../../fixtures/adopet-adocao.json'
 
 describe('Realizar adocao', () => {
-
-
 
     beforeEach(() => {
         cy.acessarSite();
