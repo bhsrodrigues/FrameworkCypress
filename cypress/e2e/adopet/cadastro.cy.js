@@ -9,21 +9,25 @@ describe('Cadastro de interessados em adoção', () =>{
     })
     it('Tentativa de cadastro sem informar nenhum dado', () => {
         CadastroPage.clicarBotaoCadastrar();
+        cy.get(CadastroPage.mensagemErro).should("exist");
     }),
 
     it('Tentativa de cadastro informando dados em formatos inválidos', () => {
         CadastroPage.preencherDadosCadastrais("Nome Completo",
-            "email.email@email.email_email@com", "senha1234", "senha1234")
+            "email.email@email.email_email@com", "senha1234", "senha1234");
+        cy.get(CadastroPage.mensagemErro).should("exist");
     }),
 
     it('Tentativa de cadastro informando senha incompleta', () => {
         CadastroPage.preencherDadosCadastrais("Nome Completo",
-            "email.email@email.email.com", "senha1234", "senha4321")
+            "email.email@email.email.com", "senha1234", "senha4321");
+        cy.get(CadastroPage.mensagemErro).should("exist");
     }),
 
     it('Tentativa de cadastrado informando confirmação de senha incorreta', () => {
         CadastroPage.preencherDadosCadastrais("Nome Completo",
-            "email.email@email.email.com", "Senha1234", "Senha4321")
+            "email.email@email.email.com", "Senha1234", "Senha4321");
+        cy.get(CadastroPage.mensagemErro).should("exist");
     })
 
     it('Cadastro realizado com sucesso', () => {

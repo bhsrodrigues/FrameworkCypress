@@ -9,6 +9,7 @@ class AdocaoPage{
     get txtMensagem() { return cy.get('#msg');}
     get btnEnviar() { return cy.get('[data-test="submit-button"]');}
     get sectionMensagensEviadas() { return cy.get('.enviadas > ul.enviadas');}
+    get mensagemErro() {return cy.get(".error")};
 
     acessarOpcaoAdocao(){
         

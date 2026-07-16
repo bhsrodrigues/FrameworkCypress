@@ -6,6 +6,7 @@ class PerfilPage{
     get txtCidade() {return cy.get('#cidade')};
     get txtSobre() {return cy.get('#sobre')};
     get btnSalvar() {return cy.get('[data-test="submit-button"]')};
+    get mensagemErro() {return cy.get(".error")};
 
     verPerfil(){
         this.btnIconePerfil.click();
@@ -15,6 +16,12 @@ class PerfilPage{
 
     clicarSalvarPerfil(){
         this.btnSalvar.click();
+    }
+
+    apagarDados(){
+        this.txtTelefone.clear();
+        this.txtCidade.clear();
+        this.txtSobre.clear();
     }
 
     alterarPerfil(nome, telefone, cidade, sobre){

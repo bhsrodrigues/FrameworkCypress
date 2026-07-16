@@ -12,9 +12,11 @@ describe('Alteração de perfil', () => {
         PerfilPage.verPerfil();
     })
 
-    it('Salvar perfil sem alterar dados',() => {
+    it('Salvar perfil sem todos dados preenchidos',() => {
         PerfilPage.btnIconePerfil.click();
+        PerfilPage.apagarDados();
         PerfilPage.clicarSalvarPerfil();
+        cy.get(PerfilPage.mensagemErro).should("exist");
     }),
 
     it('Salvar perfil após efetuar alterações', () => {

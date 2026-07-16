@@ -23,14 +23,17 @@ describe('Realizar adocao', () => {
     it('Efetuar tentativa de adoção sem preencher nenhum campo',() =>{
 
         AdocaoPage.clicarBotaoEnviar();
+        cy.get(AdocaoPage.mensagemErro).should("exist");
     }),
 
     it('Efetuar tentativa de adoção preenchendo campos com dados inválidos',() =>{
         AdocaoPage.enviarFormularioComMensagem(adocao.nome,"(1)1 989898-6856", "Pet", "Mensagem enviada");
+        cy.get(AdocaoPage.mensagemErro).should("exist");
     }),
 
     it('Efetuar tentativa de adoção sem informar mensagem',() =>{
         AdocaoPage.enviarFormularioSemMensagem(adocao.nome,adocao.telefone, "Pet");
+        cy.get(AdocaoPage.mensagemErro).should("exist");
     }),
 
     it('Efetuar tentativa de adoção com sucesso',() =>{

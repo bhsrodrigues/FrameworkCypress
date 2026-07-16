@@ -5,6 +5,7 @@ class CadastroPage{
     get txtCampoSenha() { return cy.get('[data-test="input-password"]');}
     get txtConfirmeSenha() { return cy.get('[data-test="input-confirm-password"]');}
     get btnCadastrar() { return cy.get('[data-test="submit-button"]');}
+    get mensagemErro() { return cy.get('error');}
 
     clicarBotaoCadastrar(){
         this.btnCadastrar.click();

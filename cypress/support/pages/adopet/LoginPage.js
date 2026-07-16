@@ -6,6 +6,7 @@ class LoginPage{
     get txtEmail() { return cy.get('[data-test="input-loginEmail"]');}
     get txtSenha() {return cy.get('[data-test="input-loginPassword"]');}
     get btnLogin() {return cy.get('[data-test="submit-button"]');}
+    get mensagemErro() { return cy.get('error');}
 
     
     clicarLogin(){
